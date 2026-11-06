@@ -1,0 +1,12 @@
+{
+  "task": "video_moderation",
+  "fixed_1fps": {
+    "ad_gap_detected": false,
+    "ad_hit_detected": true,
+    "normal_false_positive": false
+  },
+  "dense_0_4s": {
+    "ad_gap_detection_rate": 0.725,
+    "trials": 40
+  }
+}

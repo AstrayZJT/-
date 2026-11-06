@@ -1,0 +1,77 @@
+{
+  "task": "text_moderation",
+  "train_size": 1080,
+  "test_size": 270,
+  "keyword_accuracy": 0.8333,
+  "keyword_normalized_accuracy": 0.937,
+  "model_accuracy": 1.0,
+  "clean_accuracy": 1.0,
+  "clean_macro_f1": 1.0,
+  "robust_accuracy": 1.0,
+  "robust_macro_f1": 1.0,
+  "per_class": {
+    "abuse": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 90.0
+    },
+    "ad": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 90.0
+    },
+    "normal": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 90.0
+    },
+    "accuracy": 1.0,
+    "macro avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 270.0
+    },
+    "weighted avg": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 270.0
+    }
+  },
+  "attack_evasion": {
+    "同音/形近（全量）": {
+      "samples": 142,
+      "keyword_evasion": 0.8521,
+      "normalize_evasion": 0.0,
+      "model_evasion": 0.0
+    },
+    "零宽字符": {
+      "samples": 180,
+      "keyword_evasion": 0.5111,
+      "normalize_evasion": 0.0944,
+      "model_evasion": 0.0
+    },
+    "字符拆分": {
+      "samples": 180,
+      "keyword_evasion": 0.85,
+      "normalize_evasion": 0.25,
+      "model_evasion": 0.0
+    },
+    "Emoji 插入": {
+      "samples": 180,
+      "keyword_evasion": 1.0,
+      "normalize_evasion": 0.8833,
+      "model_evasion": 0.0
+    }
+  },
+  "labels": [
+    "normal",
+    "ad",
+    "abuse"
+  ],
+  "note": "关键词基线模拟平台早期只有黑名单的状态；归一化防御成本最低；模型用于兜住归一化处理不了的变体。"
+}

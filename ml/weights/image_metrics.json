@@ -1,0 +1,14 @@
+{
+  "task": "image_moderation",
+  "train_size": 720,
+  "test_size": 180,
+  "clean_accuracy": 1.0,
+  "attack_success_rate": 0.5,
+  "robust_accuracy": 1.0,
+  "robust_attack_success_rate": 0.0333,
+  "epsilon": 0.09411764705882353,
+  "classes": [
+    "normal",
+    "ad"
+  ]
+}
