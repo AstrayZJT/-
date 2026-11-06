@@ -32,7 +32,7 @@
 
 ## 快速开始
 
-环境：Windows 10/11、Python 3.12、Node.js 20（仅构建前端需要）。本机验证过 CPU 推理，无需 GPU。
+环境：Windows 10/11、Python 3.11+、Node.js 20（仅构建前端需要）。本机验证过 CPU 推理，无需 GPU。
 
 ```powershell
 # 1. 安装依赖 + 生成数据 + 训练模型（首次约 5-10 分钟）
@@ -223,7 +223,7 @@ scripts/               setup / run / build / dev / reset / smoke / ui_check
 | 实验报告 | `docs/报告-SocialSim.docx` |
 | 答辩 PPT | `docs/答辩-SocialSim.pptx` |
 | 演示脚本 | `docs/demo-script.md` |
-| 演示视频 | 按脚本自行录屏（3–5 分钟） |
+| 演示视频 | 按 `docs/demo-script.md` 自行录屏（3–5 分钟） |
 
 ## License
 
