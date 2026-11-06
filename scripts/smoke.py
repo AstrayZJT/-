@@ -43,9 +43,12 @@ def main() -> int:
     text = client.post("/api/admin/lab/text", headers=h,
                        json={"text": "加微信 abc123 兼职日结，一天300"}).json()
     evaded = [v for v in text["variants"] if v["evaded"]]
-    caught_norm = [v for v in text["variants"] if v["evaded"] and v["normalized"]["label"] != "normal"]
+    caught = [
+        v for v in text["variants"]
+        if v["evaded"] and (v["normalized"]["label"] != "normal" or v["robust"]["label"] != "normal")
+    ]
     check("text attack", len(evaded) >= 2, f"evaded={len(evaded)}")
-    check("text defense", len(caught_norm) == len(evaded), f"norm_caught={len(caught_norm)}")
+    check("text defense", len(caught) == len(evaded), f"caught={len(caught)}")
 
     sample = ROOT / "data" / "uploads" / "demo" / "sample_ad.jpg"
     with sample.open("rb") as f:
