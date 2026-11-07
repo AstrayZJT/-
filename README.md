@@ -222,6 +222,7 @@ scripts/               setup / run / build / dev / reset / smoke / ui_check
 | 源代码 | 本仓库 |
 | 实验报告 | `docs/报告-SocialSim.docx` |
 | 答辩 PPT | `docs/答辩-SocialSim.pptx` |
+| 汇报手册 | `docs/汇报手册-SocialSim.docx` / `.pdf` |
 | 演示脚本 | `docs/demo-script.md` |
 | 演示视频 | 按 `docs/demo-script.md` 自行录屏（3–5 分钟） |
 

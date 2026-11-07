@@ -13,6 +13,7 @@ from docx import Document
 from docx.enum.section import WD_SECTION
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Cm, Inches, Pt, RGBColor
 from pptx import Presentation
@@ -140,10 +141,17 @@ def add_table(doc: Document, rows: list[list[str]]) -> None:
             text = row[j] if j < len(row) else ""
             run = p.add_run(text)
             set_cn_font(run, "宋体", 9, bold=(i == 0))
+    # 表头跨页重复，行内容不跨页拆分
+    tr_pr = table.rows[0]._tr.get_or_add_trPr()
+    header = OxmlElement("w:tblHeader")
+    header.set(qn("w:val"), "true")
+    tr_pr.append(header)
+    for row in table.rows:
+        row._tr.get_or_add_trPr().append(OxmlElement("w:cantSplit"))
     doc.add_paragraph()
 
 
-def parse_markdown(doc: Document, text: str) -> None:
+def parse_markdown(doc: Document, text: str, image_width: float = 6.1) -> None:
     lines = text.splitlines()
     i = 0
     in_code = False
@@ -205,7 +213,7 @@ def parse_markdown(doc: Document, text: str) -> None:
                 if path.exists():
                     p = doc.add_paragraph()
                     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-                    p.add_run().add_picture(str(path), width=Inches(6.1))
+                    p.add_run().add_picture(str(path), width=Inches(image_width))
                     cap = doc.add_paragraph()
                     cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
                     run = cap.add_run(m.group(1))
