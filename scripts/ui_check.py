@@ -19,7 +19,8 @@ CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 
 
 def main() -> int:
-    login = httpx.post(f"{BASE}/api/auth/login", json={"username": "admin", "password": "admin123"}, timeout=30).json()
+    login = httpx.post(f"{BASE}/api/auth/login", json={"username": "admin", "password": "admin123"},
+                       timeout=30, trust_env=False).json()
     token, user = login["access_token"], login["user"]
     auth = json.dumps({"token": token, "user": user}, ensure_ascii=False)
 

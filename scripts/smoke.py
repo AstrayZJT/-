@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def main() -> int:
-    client = httpx.Client(base_url=BASE, timeout=60)
+    client = httpx.Client(base_url=BASE, timeout=60, trust_env=False)
     checks: list[tuple[str, bool, str]] = []
 
     def check(name: str, ok: bool, detail: str = "") -> None:
